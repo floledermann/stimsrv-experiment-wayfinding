@@ -35,48 +35,65 @@ module.exports = {
         "monitor": "Please select the route & instructions for this experiment run."
       },
       buttondisplay: "control"
-    }),  
+    }),
     
-    {
-      name: "image",
-      description: "Image stimulus",
-      ui: context => ({
-        interfaces: {
-          display: imageStimulus({baseURL: "/static/task/image/"}),
-          monitor: imageStimulus({baseURL: "/static/task/image/"}),
-          control: htmlButtons([
-            {label: "Prev", response: {dir: -1}},
-            {label: "Next", response: {dir: 1}},
-          ])
-        }
-      }),
-      controller: context => {
-        let imgIndex = 0;
-        context.route = "R1";
-        context.mode = "S";
-        return {
-          nextCondition: (lastCond, lastResponse) => {
-            imgIndex += lastResponse?.dir || 0;
-            if (imgIndex < 0) imgIndex = 0;
-            if (imgIndex > images[context.route][context.mode].length - 1) {
-              // we have reached the end
-              return null;
+    loop({
+      context: {
+        route: random.shuffle(["R1","R2"]),
+        mode: random.shuffle(["S","TBT"]),
+      },
+      
+      tasks: [
+   
+        pause({
+          message: {
+            "display": "Please follow the experiment conductor to the starting location for your next task.",
+            "monitor": context => "Transition to route " + context.route + ", mode " + context.mode + "."
+          },
+          buttondisplay: "control"
+        }),
+        
+        {
+          name: "image",
+          description: "Image stimulus",
+          ui: context => ({
+            interfaces: {
+              display: imageStimulus({baseURL: "/static/task/loop/"}),
+              monitor: imageStimulus({baseURL: "/static/task/loop/"}),
+              control: htmlButtons([
+                {label: "Prev", response: {dir: -1}},
+                {label: "Next", response: {dir: 1}},
+              ])
             }
+          }),
+          controller: context => {
+            let imgIndex = 0;
             return {
-              image: context.route + "_" + context.mode + "/" + images[context.route][context.mode][imgIndex]
+              nextCondition: (lastCond, lastResponse) => {
+                imgIndex += lastResponse?.dir || 0;
+                if (imgIndex < 0) imgIndex = 0;
+                // have we reached the end?
+                if (imgIndex > images[context.route][context.mode].length - 1) {                 
+                  return null;
+                }
+                return {
+                  image: context.route + "_" + context.mode + "/" + images[context.route][context.mode][imgIndex]
+                }
+              }
             }
-          }
-        }
-      },
-      resources: "images"
-    }, 
-    
-    pause({
-      message: {
-        "display": "You have reached your destination!\n\nWe would now like to ask you a few quesitons about your route.\n\nPress 'Continue' when you're ready.",
-        "control": "Destination reached. Waiting for participant."
-      },
-    }),  
+          },
+          resources: "images"
+        }, 
+        
+        pause({
+          message: {
+            "display": "You have reached your destination!\n\nWe would now like to ask you a few quesitons about your route.\n\nPress 'Continue' when you're ready.",
+            "control": "Destination reached. Waiting for participant."
+          },
+        }),  
+        
+      ]
+    }),
     
   ]
   
