@@ -28,7 +28,7 @@ module.exports = {
       role: "participant",
       description: "Participant Phone",
       devices: ["participant", "dev"],
-      interfaces: ["display"]
+      interfaces: ["display","response"]
     },
     {
       role: "supervisor",
