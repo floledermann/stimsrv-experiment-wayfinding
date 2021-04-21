@@ -17,7 +17,6 @@ module.exports = {
     {
       name: "Participant",
       id: "participant",
-      resolution: "hd",
       pixeldensity: 800,
       viewingdistance: 350,
     },
@@ -28,7 +27,7 @@ module.exports = {
       role: "participant",
       description: "Participant Phone",
       devices: ["participant", "dev"],
-      interfaces: ["display","response"]
+      interfaces: ["display", "response"]
     },
     {
       role: "supervisor",
