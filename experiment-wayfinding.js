@@ -8,7 +8,7 @@ const sequence = require("stimsrv/controller/sequence");
 const imageStimulus = require("stimsrv/stimulus/image");   
 const htmlButtons = require("stimsrv/ui/htmlButtons");   
 
-const setup = require("./setup-mobile.js");
+const setup = require("./devices-roles.js");
 
 const images = require("./images.js");
 
