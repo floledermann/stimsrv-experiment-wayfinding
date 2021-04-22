@@ -32,7 +32,7 @@ module.exports = {
     pause({
       message: {
         "display": "Please wait for the experiment to start.",
-        "monitor": "Please select the route & instructions for this experiment run."
+        "monitor": "Press 'Continue' when everything is ready."
       },
       buttondisplay: "control"
     }),
@@ -58,8 +58,8 @@ module.exports = {
           description: "Image stimulus",
           ui: context => ({
             interfaces: {
-              display: imageStimulus({baseURL: "/static/task/loop/"}),
-              monitor: imageStimulus({baseURL: "/static/task/loop/"}),
+              display: imageStimulus({baseURL: "/static/resources/loop/", fullscreen: true}),
+              monitor: imageStimulus({baseURL: "/static/resources/loop/"}),
               control: htmlButtons([
                 {label: "Prev", response: {dir: -1}},
                 {label: "Next", response: {dir: 1}},
