@@ -8,6 +8,8 @@ const sequence = require("stimsrv/controller/sequence");
 const imageStimulus = require("stimsrv/stimulus/image");   
 const htmlButtons = require("stimsrv/ui/htmlButtons");   
 
+const resource = require("stimsrv/util/resource");
+
 const setup = require("./devices-roles.js");
 
 const images = require("./images.js");
@@ -58,8 +60,8 @@ module.exports = {
           description: "Image stimulus",
           ui: context => ({
             interfaces: {
-              display: imageStimulus({baseURL: "/static/resources/images/"}),
-              monitor: imageStimulus({baseURL: "/static/resources/images/"}),
+              display: imageStimulus({baseURL: resource.url("images")}),
+              monitor: imageStimulus({baseURL: resource.url("images")}),
               control: htmlButtons([
                 {label: "Prev", response: {dir: -1}},
                 {label: "Next", response: {dir: 1}},
