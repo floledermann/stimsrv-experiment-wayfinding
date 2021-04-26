@@ -58,8 +58,8 @@ module.exports = {
           description: "Image stimulus",
           ui: context => ({
             interfaces: {
-              display: imageStimulus({baseURL: "/static/resources/loop/", fullscreen: true}),
-              monitor: imageStimulus({baseURL: "/static/resources/loop/"}),
+              display: imageStimulus({baseURL: "/static/resources/images/"}),
+              monitor: imageStimulus({baseURL: "/static/resources/images/"}),
               control: htmlButtons([
                 {label: "Prev", response: {dir: -1}},
                 {label: "Next", response: {dir: 1}},
