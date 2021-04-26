@@ -10,9 +10,9 @@ Clone this repository and run **install.bat** (or `npm i` on the command line) a
 
 Run **run.bat** (or `npx stimsrv experiment-wayfinding.js` on the command line) to start the experiment for a regular session.
 
-Open a web browser on the target device(s) and open one of the URLs shown in the stimsrv output. (Note: the accessibility of the stimsrv server from your target devices may depend on your network configuration - contact your system administrator if you cannot connect to stimsrv from your client device.)
+Open a web browser on the target device(s) and open one of the URLs shown in green in the stimsrv output. (Note: the accessibility of the stimsrv server from your target devices may depend on your network configuration - contact your system administrator if you cannot connect to stimsrv from your client device.)
 
-Enter one of the following device IDs in the role selection page:
+Enter one of the following client IDs in the experiment setup page:
 
 - **participant** for the participant's device
 - **supervisor** for the supervisor device
