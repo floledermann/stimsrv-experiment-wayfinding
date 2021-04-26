@@ -18,7 +18,7 @@ Enter one of the following device IDs in the role selection page:
 - **supervisor** for the supervisor device
 - **dev** on your computer during development (allow the selection of both roles for testing purposes).
 
-Modify the settings in `devices-roles.js` to reflect the properties of the devices in the experiment (screen resolution etc.).
+Modify the settings in `devices-roles.js` to reflect the properties of the actual devices in the experiment (screen resolution etc.).
 
 For further adjustments, refer to the [stimsrv documentation](https://github.com/floledermann/stimsrv/) for information on configuring and developing experiments.
 
