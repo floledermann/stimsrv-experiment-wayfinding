@@ -1,4 +1,4 @@
-# stimsrv Wayfinding Example Experiment
+# stimsrv example experiment - indoor wayfinding study
 
 This experiment uses the [stimsrv system](https://github.com/floledermann/stimsrv/) for simple Wizard-of-Oz prototyping of an indoor navigation application.
 
