@@ -1,4 +1,4 @@
 
-call npx stimsrv experiment-wayfinding.js
+call npm run experiment
 
 pause
